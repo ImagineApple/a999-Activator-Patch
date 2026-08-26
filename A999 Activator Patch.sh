@@ -49,30 +49,10 @@ UIColors()
 		fi
 	fi
 }
-ANIMATIONDRIVE()
-{
-	local frames=("..." "   " ".  " ".. ")
-		while true; do
-			for frame in "${frames[@]}"; do
-				echo -ne "\r                              Creating the drive$frame   "
-				sleep 0.7
-			done
-		done
-}
-ANIMATIONDOWNLOAD()
-{
-	local frames=("..." "   " ".  " ".. ")
-		while true; do
-			for frame in "${frames[@]}"; do
-				echo -ne "\r                                Downloading$frame   "
-				sleep 0.7
-			done
-		done
-}
 WINDOWBAR()
 {
 	clear
-	echo -e "${APP}${BOLD}                           A999 Activator Patch ${RESET}${APP}V1.0.0${BOLD}"
+	echo -e "${APP}${BOLD}                           a999 Activator Patch ${RESET}${APP}V1.0.0${BOLD}"
 	echo -e "»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»"
 }
 WINDOWBAREND()
@@ -152,11 +132,11 @@ MENU_SELECTOR()
 MAINMENU()
 {
 	WINDOWBAR
-	echo -e "${RESET}${TITLE}${BOLD}                   Select the A999 executable to get started${RESET}"
+	echo -e "${RESET}${TITLE}${BOLD}                   Select the a999 executable to get started${RESET}"
 	echo -e "${RESET}${BODY}                  Use ${BOLD}↑ ↓${RESET}${BODY} to navigate. Press ${BOLD}Return${RESET}${BODY} to select${RESET}"
 	echo -e ""
 	echo -e "${TITLE}${BOLD}                            Please choose an option:${RESET}${BODY}"
-	menuoptions=("-----------Select A999 Executable-----------" \
+	menuoptions=("-----------Select a999 executable-----------" \
              	 "--------------------Exit--------------------" )
 	MENU_SELECTOR "${menuoptions[@]}"
 	selection=$?
@@ -173,7 +153,7 @@ A999FOLDER()
 folderpath=$(osascript <<EOF
 		  	  tell application "System Events"
 		    	    activate
-		    	    set theFile to choose file with prompt "Select the A999 Executable:"
+		    	    set theFile to choose file with prompt "Select the a999 executable:"
 		    	    return POSIX path of theFile
 		    	end tell
 EOF
@@ -225,12 +205,12 @@ FOLDERERROR()
 FOLDERPASS()
 {
 	WINDOWBAR
-	echo -e "${RESET}${TITLE}${BOLD}                              A999 executable found!${RESET}"
+	echo -e "${RESET}${TITLE}${BOLD}                              a999 executable found!${RESET}"
 	echo -e "${RESET}${BODY}                  Use ${BOLD}↑ ↓${RESET}${BODY} to navigate. Press ${BOLD}Return${RESET}${BODY} to select${RESET}"
 	echo -e ""
 	echo -e "${TITLE}${BOLD}                            Please choose an option:${RESET}${BODY}"
 	menuoptions=("-------------* Start Patching *-------------" \
-				 "-----------Select A999 Executable-----------" \
+				 "-----------Select a999 executable-----------" \
              	 "--------------------Exit--------------------" )
 	MENU_SELECTOR "${menuoptions[@]}"
 	selection=$?
@@ -247,12 +227,12 @@ FOLDERPASS()
 FOLDERPASSPATCHED()
 {
 	WINDOWBAR
-	echo -e "${RESET}${TITLE}${BOLD}                          A999 has already been patched${RESET}"
+	echo -e "${RESET}${TITLE}${BOLD}                          a999 has already been patched${RESET}"
 	echo -e "${RESET}${BODY}                  Use ${BOLD}↑ ↓${RESET}${BODY} to navigate. Press ${BOLD}Return${RESET}${BODY} to select${RESET}"
 	echo -e ""
 	echo -e "${TITLE}${BOLD}                            Please choose an option:${RESET}${BODY}"
 	menuoptions=("-------------* Revert Patches *-------------" \
-				 "-----------Select A999 Executable-----------" \
+				 "-----------Select a999 executable-----------" \
              	 "--------------------Exit--------------------" )
 	MENU_SELECTOR "${menuoptions[@]}"
 	selection=$?
@@ -271,8 +251,6 @@ A999PATCH()
 	WINDOWBAR
 	echo -e -n "${RESET}${TITLE}${BOLD}                               Applying patches..."
 	echo -e ""
-	echo -e -n "${RESET}${TITLE}                          Please Enter Your "
-	sudo echo ""
 	echo -e "\033[1A\033[0K${BODY}"
 	sed -i '' '17s/047-95293/122-77536/' "$dir/a999"
 	sed -i '' '17s/18A0749D-A68D-430C-8E31-1920612F3229/9EE30DC1-EC4B-47CE-A002-24CD6B18947D/' "$dir/a999"
@@ -290,7 +268,7 @@ A999PATCH()
 	echo -e "${RESET}${BODY}${BOLD}                                   All Done!${RESET}"
 	echo -e ""
 	echo -e "${TITLE}${BOLD}                            Please choose an option:${RESET}${BODY}"
-	menuoptions=("-----------------Start A999-----------------" \
+	menuoptions=("-----------------Start a999-----------------" \
              	 "--------------------Exit--------------------" )
 	MENU_SELECTOR "${menuoptions[@]}"
 	selection=$?
@@ -310,8 +288,6 @@ A999PATCHREVERT()
 	WINDOWBAR
 	echo -e -n "${RESET}${TITLE}${BOLD}                               Removing patches..."
 	echo -e ""
-	echo -e -n "${RESET}${TITLE}                          Please Enter Your "
-	sudo echo ""
 	echo -e "\033[1A\033[0K${BODY}"
 	sed -i '' '17s/122-77536/047-95293/' "$dir/a999"
 	sed -i '' '17s/9EE30DC1-EC4B-47CE-A002-24CD6B18947D/18A0749D-A68D-430C-8E31-1920612F3229/' "$dir/a999"
