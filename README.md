@@ -1,5 +1,5 @@
 # a999-Activator-Patch
-A simple script to patch the A999 Activator in order to continue to downgrade iPhone 6s and 6s+
+A simple script to patch the a999 Activator in order to continue to downgrade iPhone 6s and 6s+
 
 ## How to Use
 
